@@ -88,27 +88,24 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osubuffer.html#buffer" class="tsd-kind-icon">buffer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="osubuffer.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osubuffer.html#position" class="tsd-kind-icon">position</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="osubuffer.html#concat" class="tsd-kind-icon">concat</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="osubuffer.html#positionincrement" class="tsd-kind-icon">position<wbr>Increment</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#readbyte" class="tsd-kind-icon">read<wbr>Byte</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#readint" class="tsd-kind-icon">read<wbr>Int</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#readlong" class="tsd-kind-icon">read<wbr>Long</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#readshort" class="tsd-kind-icon">read<wbr>Short</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#readvarchar" class="tsd-kind-icon">read<wbr>Var<wbr>Char</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="osubuffer.html#readvarint" class="tsd-kind-icon">read<wbr>Var<wbr>Int</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#slice" class="tsd-kind-icon">slice</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writebyte" class="tsd-kind-icon">write<wbr>Byte</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writeint" class="tsd-kind-icon">write<wbr>Int</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writelong" class="tsd-kind-icon">write<wbr>Long</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="osubuffer.html#writeuint" class="tsd-kind-icon">writeUInt</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writevarchar" class="tsd-kind-icon">write<wbr>Var<wbr>Char</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osubuffer.html#writevarint" class="tsd-kind-icon">write<wbr>Var<wbr>Int</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="osubuffer.html#encodevarint" class="tsd-kind-icon">encode<wbr>Var<wbr>Int</a></li>
 							</ul>
 						</section>
@@ -127,13 +124,23 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L5">lib/OsuBuffer.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L9">lib/OsuBuffer.ts:9</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a OsuBuffer instance with optional initial data.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Initial data.</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a></h4>
@@ -149,69 +156,33 @@
 					<div class="tsd-signature tsd-kind-icon">buffer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Buffer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L4">lib/OsuBuffer.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L5">lib/OsuBuffer.ts:5</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Buffer holding all the binary data.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="position" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> position</h3>
+					<h3>position</h3>
 					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L5">lib/OsuBuffer.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L9">lib/OsuBuffer.ts:9</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Zero-based indicating the current position used for reading from the Buffer.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="concat" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> concat</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">concat<span class="tsd-signature-symbol">(</span>otherBuffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L17">lib/OsuBuffer.ts:17</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>otherBuffer: <span class="tsd-signature-type">Buffer</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="positionincrement" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> position<wbr>Increment</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">position<wbr>Increment<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L132">lib/OsuBuffer.ts:132</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>length: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="readbyte" class="tsd-anchor"></a>
 					<h3>read<wbr>Byte</h3>
@@ -222,16 +193,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L25">lib/OsuBuffer.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L50">lib/OsuBuffer.ts:50</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads a byte value from the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> offset: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.positionIncrement(1)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Zero-based position to start reading in.
+										Default: <a href="osubuffer.html#position">current position</a> plus one.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The read byte.</p>
 						</li>
 					</ul>
 				</section>
@@ -245,16 +226,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L33">lib/OsuBuffer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L70">lib/OsuBuffer.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads a int value from the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> offset: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.positionIncrement(4)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Zero-based position to start reading in.
+										Default: <a href="osubuffer.html#position">current position</a> plus four.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The read int.</p>
 						</li>
 					</ul>
 				</section>
@@ -268,19 +259,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L37">lib/OsuBuffer.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L82">lib/OsuBuffer.ts:82</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads a long value from the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> offset: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.positionIncrement(8)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Zero-based position to start reading in.
+										Default: <a href="osubuffer.html#position">current position</a> plus eight.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useNodeImpl: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Boolean value representing when
+										to use the {@link Buffer#readBigUInt64LE NodeJS implementation}.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">bigint</span></h4>
+							<p>The read long.</p>
 						</li>
 					</ul>
 				</section>
@@ -294,16 +299,26 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L29">lib/OsuBuffer.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L60">lib/OsuBuffer.ts:60</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads a short value from the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> offset: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.positionIncrement(2)</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Zero-based position to start reading in.
+										Default: <a href="osubuffer.html#position">current position</a> plus two.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The read short.</p>
 						</li>
 					</ul>
 				</section>
@@ -311,39 +326,38 @@
 					<a name="readvarchar" class="tsd-anchor"></a>
 					<h3>read<wbr>Var<wbr>Char</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">read<wbr>Var<wbr>Char<span class="tsd-signature-symbol">(</span>encoding<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">BufferEncoding</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">read<wbr>Var<wbr>Char<span class="tsd-signature-symbol">(</span>startOffset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, encoding<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">BufferEncoding</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L59">lib/OsuBuffer.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L126">lib/OsuBuffer.ts:126</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads a varChar value from the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> startOffset: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A.</p>
+									</div>
+								</li>
+								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> encoding: <span class="tsd-signature-type">BufferEncoding</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The varChar encoding to use when reading from the <a href="osubuffer.html#buffer">buffer</a>.
+										Default: &#39;utf8&#39;.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="readvarint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> read<wbr>Var<wbr>Int</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">read<wbr>Var<wbr>Int<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L41">lib/OsuBuffer.ts:41</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>The read varChar.</p>
 						</li>
 					</ul>
 				</section>
@@ -351,25 +365,37 @@
 					<a name="slice" class="tsd-anchor"></a>
 					<h3>slice</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
+						<li class="tsd-signature tsd-kind-icon">slice<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L21">lib/OsuBuffer.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L40">lib/OsuBuffer.ts:40</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Slices the <a href="osubuffer.html#buffer">buffer</a> returning a new one with the desired length.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>length: <span class="tsd-signature-type">number</span></h5>
+									<h5>start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Zero-based start position to slice.</p>
+									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> start: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = this.positionIncrement(length)</span></h5>
+									<h5>length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The length to slice.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Buffer</span></h4>
+							<p>A {@link Buffer} with size equals to the length parameter.</p>
 						</li>
 					</ul>
 				</section>
@@ -383,13 +409,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L73">lib/OsuBuffer.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L154">lib/OsuBuffer.ts:154</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a byte value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -406,13 +440,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L81">lib/OsuBuffer.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L170">lib/OsuBuffer.ts:170</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a int value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -429,16 +471,28 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L85">lib/OsuBuffer.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L180">lib/OsuBuffer.ts:180</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a long value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">bigint</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> useNodeImpl: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Boolean value representing when
+										to use the {@link Buffer#writeBigUInt64LE NodeJS implementation}.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -455,39 +509,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L77">lib/OsuBuffer.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L162">lib/OsuBuffer.ts:162</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a short value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="writeuint" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> writeUInt</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">writeUInt<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, length<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L67">lib/OsuBuffer.ts:67</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>length: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -504,19 +540,65 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L113">lib/OsuBuffer.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L228">lib/OsuBuffer.ts:228</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a varChar value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> nullable: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Boolean representing if the varChar is nullable.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> encoding: <span class="tsd-signature-type">BufferEncoding</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The varChar encoding to use when writing to the <a href="osubuffer.html#buffer">buffer</a>.
+										Default: &#39;utf8&#39;.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="writevarint" class="tsd-anchor"></a>
+					<h3>write<wbr>Var<wbr>Int</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">write<wbr>Var<wbr>Int<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L217">lib/OsuBuffer.ts:217</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes a varInt value to the <a href="osubuffer.html#buffer">buffer</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to write.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -533,16 +615,25 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/c47334b/src/lib/OsuBuffer.ts#L91">lib/OsuBuffer.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/OsuBuffer.ts#L191">lib/OsuBuffer.ts:191</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Encodes a number to a varInt.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>value: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to encode.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h4>
+							<p>The encoded value as a array of bytes.</p>
 						</li>
 					</ul>
 				</section>
@@ -575,14 +666,8 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="osubuffer.html#buffer" class="tsd-kind-icon">buffer</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="osubuffer.html#position" class="tsd-kind-icon">position</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="osubuffer.html#concat" class="tsd-kind-icon">concat</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="osubuffer.html#positionincrement" class="tsd-kind-icon">position<wbr>Increment</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="osubuffer.html#readbyte" class="tsd-kind-icon">read<wbr>Byte</a>
@@ -599,9 +684,6 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="osubuffer.html#readvarchar" class="tsd-kind-icon">read<wbr>Var<wbr>Char</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="osubuffer.html#readvarint" class="tsd-kind-icon">read<wbr>Var<wbr>Int</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="osubuffer.html#slice" class="tsd-kind-icon">slice</a>
 							</li>
@@ -617,11 +699,11 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="osubuffer.html#writeshort" class="tsd-kind-icon">write<wbr>Short</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="osubuffer.html#writeuint" class="tsd-kind-icon">writeUInt</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="osubuffer.html#writevarchar" class="tsd-kind-icon">write<wbr>Var<wbr>Char</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="osubuffer.html#writevarint" class="tsd-kind-icon">write<wbr>Var<wbr>Int</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="osubuffer.html#encodevarint" class="tsd-kind-icon">encode<wbr>Var<wbr>Int</a>
@@ -642,21 +724,6 @@
 					<li class=" tsd-kind-type-alias">
 						<a href="../globals.html#osumod" class="tsd-kind-icon">Osu<wbr>Mod</a>
 					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#max" class="tsd-kind-icon">MAX</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#min" class="tsd-kind-icon">MIN</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#readbiguint64le" class="tsd-kind-icon">read<wbr>BigUInt64LE</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#writebiguint64le" class="tsd-kind-icon">write<wbr>BigUInt64LE</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#writevalues" class="tsd-kind-icon">write<wbr>Values</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -670,10 +737,6 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
