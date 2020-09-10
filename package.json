@@ -65,14 +65,11 @@
     "typescript": "^4.0.2"
   },
   "files": [
-    "build/main",
-    "build/module",
-    "!**/*.spec.*",
-    "!**/*.json",
-    "!src/",
-    "CHANGELOG.md",
-    "LICENSE",
-    "README.md"
+    "/build/main",
+    "/build/module",
+    "/CHANGELOG.md",
+    "/LICENSE",
+    "/README.md"
   ],
   "ava": {
     "failFast": true,
@@ -103,5 +100,8 @@
     "exclude": [
       "**/*.spec.js"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
