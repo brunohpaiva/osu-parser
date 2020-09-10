@@ -46,7 +46,7 @@ test([readMacro, writeMacro], 'long', 637321042198407465n, [
 ]);
 test('small varChar', [readMacro, writeMacro], 'varChar', 'Test', [
   0x0b,
-  0x05,
+  0x04,
   0x54,
   0x65,
   0x73,
@@ -92,4 +92,40 @@ test('throws error when reading a value that is not a varChar', (t) => {
       message: /Not a varChar/,
     }
   );
+});
+
+test('can create OsuBuffer from a Buffer', (t) => {
+  const buffer = Buffer.from([
+    0x0b,
+    0x04,
+    0x54,
+    0x65,
+    0x73,
+    0x74,
+    0x0b,
+    0x0b,
+    0x9f,
+  ]);
+  const osuBuffer = new OsuBuffer(buffer);
+  t.is(osuBuffer.readVarChar(), 'Test');
+  t.is(osuBuffer.readShort(), 2827);
+  t.is(osuBuffer.readByte(), 159);
+});
+
+test('can create OsuBUffer from another OsuBuffer', (t) => {
+  const inputOsuBuffer = createOsuBuffer(
+    0x0b,
+    0x04,
+    0x54,
+    0x65,
+    0x73,
+    0x74,
+    0x0b,
+    0x0b,
+    0x9f
+  );
+  const osuBuffer = new OsuBuffer(inputOsuBuffer);
+  t.is(osuBuffer.readVarChar(), inputOsuBuffer.readVarChar());
+  t.is(osuBuffer.readShort(), inputOsuBuffer.readShort());
+  t.is(osuBuffer.readByte(), inputOsuBuffer.readByte());
 });

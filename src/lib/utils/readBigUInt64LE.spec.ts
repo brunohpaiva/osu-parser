@@ -7,11 +7,15 @@ function createBuffer() {
 }
 
 test('can read BigInt from Buffer', (t) => {
-  t.is(readBigUInt64LE(createBuffer(), 0, true), 637321042198407465n);
+  const buffer = createBuffer();
+  t.is(readBigUInt64LE(buffer, 0, true), 637321042198407465n);
+  t.is(readBigUInt64LE(buffer, undefined, true), 637321042198407465n);
 });
 
 test('can read BigInt from Buffer with non-node implementation', (t) => {
-  t.is(readBigUInt64LE(createBuffer(), 0, false), 637321042198407465n);
+  const buffer = createBuffer();
+  t.is(readBigUInt64LE(buffer, 0, false), 637321042198407465n);
+  t.is(readBigUInt64LE(buffer, undefined, false), 637321042198407465n);
 });
 
 test('throws out of bounds error with non-node implementation', (t) => {

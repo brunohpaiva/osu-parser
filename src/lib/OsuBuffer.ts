@@ -47,6 +47,7 @@ export class OsuBuffer {
       result |= (byte & 0x7f) << shift;
       shift += 7;
       if ((0x80 & byte) === 0) {
+        /* istanbul ignore if */
         if (shift < 32 && (byte & 0x40) !== 0) {
           return result | (~0 << shift);
         }
