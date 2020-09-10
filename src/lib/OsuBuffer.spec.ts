@@ -44,6 +44,18 @@ test([readMacro, writeMacro], 'long', 637321042198407465n, [
   0xd8,
   0x08,
 ]);
+
+test('varInt: can read', (t) => {
+  t.deepEqual(createOsuBuffer(0xe2, 0).readVarInt(), [98, 2]);
+  t.deepEqual(createOsuBuffer(0, 0, 0xe2, 0).readVarInt(2), [98, 4]);
+});
+
+test('varInt: can write', (t) => {
+  const buffer = createOsuBuffer();
+  buffer.writeVarInt(98);
+  t.deepEqual(buffer.readVarInt(), [98, 2]);
+});
+
 test('small varChar', [readMacro, writeMacro], 'varChar', 'Test', [
   0x0b,
   0x04,
@@ -77,6 +89,11 @@ test('can write empty varChar', (t) => {
 
 test('can read empty varChar', (t) => {
   t.is(createOsuBuffer(0x0b, 0).readVarChar(), '');
+});
+
+test('can read varChar specifying the offset', (t) => {
+  const osuBuffer = createOsuBuffer(0, 0, 0x0b, 0x04, 0x54, 0x65, 0x73, 0x74);
+  t.is(osuBuffer.readVarChar(2), 'Test');
 });
 
 test('throws error when trying to encode varInt with value -1', (t) => {

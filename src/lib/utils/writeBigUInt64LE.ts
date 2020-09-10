@@ -1,6 +1,22 @@
+/**
+ * Minimum BigInt value.
+ * @internal
+ * */
 const MIN = 0n;
+/**
+ * Maximum BigInt value.
+ * @internal
+ * */
 const MAX = 0xffffffffffffffffn;
 
+/**
+ * Writes a 32 bits number to a Buffer.
+ * @internal
+ * @param buffer The target buffer.
+ * @param value The 32bit number to write in the buffer.
+ * @param offset Zero-based index number indicating the start
+ * position to start writing in.
+ */
 function writeValues(buffer: Buffer, value: number, offset: number) {
   buffer[offset++] = value;
   value = value >> 8;
@@ -11,6 +27,16 @@ function writeValues(buffer: Buffer, value: number, offset: number) {
   buffer[offset++] = value;
 }
 
+/**
+ * Writes a BigInt number to a Buffer.
+ * @internal
+ * @param buffer The target buffer.
+ * @param value The BigInt number to write in the buffer.
+ * @param offset Zero-based index number indicating the start position
+ * to start writing in. Default: 0
+ * @param useNodeImpl Boolean value representing when to use
+ * the {@link Buffer#writeBigUInt64LE NodeJS implementation}
+ */
 export function writeBigUInt64LE(
   buffer: Buffer,
   value: bigint,

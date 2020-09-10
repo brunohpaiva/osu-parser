@@ -1,3 +1,12 @@
+/**
+ * Reads a BigInt number from a Buffer.
+ * @internal
+ * @param buffer The source buffer.
+ * @param offset Zero-based index number indicating the start position to
+ * start reading on. Default: 0
+ * @param useNodeImpl Boolean value representing when
+ * to use the {@link Buffer#readBigUInt64LE NodeJS implementation}.
+ */
 export function readBigUInt64LE(
   buffer: Buffer,
   offset = 0,
