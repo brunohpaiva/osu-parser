@@ -33,11 +33,12 @@ export class OsuBuffer {
 
   /**
    * Slices the {@link buffer} returning a new one with the desired length.
-   * @param start Zero-based start position to slice.
    * @param length The length to slice.
+   * @param start Zero-based start position to slice.
+   * Default: {@link position current position} plus length parameter.
    * @returns A {@link Buffer} with size equals to the length parameter.
    */
-  slice(start: number, length: number) {
+  slice(length: number, start = this.positionIncrement(length)) {
     return this.buffer.slice(start, start + length);
   }
 
@@ -130,7 +131,7 @@ export class OsuBuffer {
       if (!suppliedStartOffset) this.position += 1;
       const [stringLength, endOffset] = this.readVarInt(offset);
       if (!suppliedStartOffset) this.position = endOffset + stringLength;
-      return this.slice(endOffset, stringLength).toString(encoding);
+      return this.slice(stringLength, endOffset).toString(encoding);
     }
     throw new Error("The first byte isn't equals to 0x0b. Not a varChar.");
   }
@@ -245,12 +246,12 @@ export class OsuBuffer {
   }
 
   /**
-   * Increments the length to the {@link position current position} variable.
+   * Adds the length to the {@link position current position} variable.
    * @internal
    * @param length The length to increment in {@link position}.
    * @returns The old position.
    */
-  private positionIncrement(length: number) {
+  positionIncrement(length: number) {
     const position = this.position;
     this.position += length;
     return position;
