@@ -25,10 +25,14 @@ export class OsuBuffer {
   /**
    * Concatenates a buffer to the current one.
    * @internal
-   * @param otherBuffer A buffer to append to the {@link buffer current buffer}.
+   * @param otherBuffer A {@link Buffer} or {@link OsuBuffer} to append
+   * to the {@link buffer current buffer}.
    */
-  private concat(otherBuffer: Buffer) {
-    this.buffer = Buffer.concat([this.buffer, otherBuffer]);
+  private concat(otherBuffer: Buffer | OsuBuffer) {
+    this.buffer = Buffer.concat([
+      this.buffer,
+      otherBuffer instanceof Buffer ? otherBuffer : otherBuffer.buffer,
+    ]);
   }
 
   /**
