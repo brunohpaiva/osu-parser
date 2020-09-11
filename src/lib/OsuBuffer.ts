@@ -12,7 +12,7 @@ export class OsuBuffer {
    * Creates a OsuBuffer instance with optional initial data.
    * @param data Initial data.
    */
-  constructor(data?: OsuBuffer | Buffer | ArrayBuffer | number[]) {
+  constructor(data: OsuBuffer | Buffer | ArrayBuffer | number[] = []) {
     if (data instanceof OsuBuffer) {
       this.buffer = data.buffer;
     } else if (data instanceof Buffer) {
