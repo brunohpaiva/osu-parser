@@ -1,3 +1,5 @@
+import { compress, decompress } from 'lzma';
+
 import { OsuBuffer } from '../OsuBuffer';
 import { ticksFromDate, ticksToDate } from '../utils';
 
@@ -139,8 +141,8 @@ export class OsuReplay {
     replay.windowsTicks = buffer.readLong();
     const compressedDataLength = buffer.readInt();
 
-    //TODO: Decompress LZMA data.
-    replay.data = buffer.slice(compressedDataLength).toString('utf8');
+    const compressedData = buffer.slice(compressedDataLength);
+    replay.data = decompress(compressedData);
     replay.onlineScoreId = buffer.readLong();
 
     replay.actions = replay.data
@@ -206,9 +208,9 @@ export class OsuReplay {
       })
       .join(',');
 
-    //TODO: Compress data using LZMA.
-    buffer.writeInt(Buffer.byteLength(data, 'utf8'));
-    buffer.concat(Buffer.from(data, 'utf8'));
+    const compressedData = compress(data);
+    buffer.writeInt(compressedData.length);
+    buffer.concat(Buffer.from(compressedData));
 
     buffer.writeLong(this.onlineScoreId);
     return buffer;

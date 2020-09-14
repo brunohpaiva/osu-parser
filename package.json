@@ -41,7 +41,9 @@
   "engines": {
     "node": ">=12"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lzma": "umireon/LZMA-JS#es6-bundle"
+  },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
