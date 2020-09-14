@@ -1,3 +1,6 @@
+import { OsuBuffer } from '../OsuBuffer';
+import { ticksFromDate, ticksToDate } from '../utils';
+
 export enum OsuButtonsEnum {
   MouseOne = 1,
   MouseTwo = 2,
@@ -91,8 +94,123 @@ export class OsuReplay {
   modsUsed?: OsuMod[];
   lifeBarGraph: string;
   windowsTicks: bigint;
-  date: Date;
   data: string;
   onlineScoreId: bigint;
   actions: OsuAction[];
+
+  get date() {
+    return ticksToDate(this.windowsTicks);
+  }
+
+  set date(date: Date) {
+    this.windowsTicks = ticksFromDate(date);
+  }
+
+  static parse(source: OsuBuffer | Buffer | ArrayBuffer | number[]) {
+    const buffer = new OsuBuffer(source);
+    const replay = new OsuReplay();
+    replay.type = buffer.readByte();
+    replay.gameVersion = buffer.readInt();
+    replay.beatmapHash = buffer.readVarChar();
+    replay.playerName = buffer.readVarChar();
+    replay.replayHash = buffer.readVarChar();
+    replay.count300s = buffer.readShort();
+    replay.count100s = buffer.readShort();
+    replay.count50s = buffer.readShort();
+    replay.countGekis = buffer.readShort();
+    replay.countKatus = buffer.readShort();
+    replay.countMisses = buffer.readShort();
+    replay.totalScore = buffer.readInt();
+    replay.greatestCombo = buffer.readShort();
+    replay.perfectCombo = Boolean(buffer.readByte());
+
+    function parseMods(bits: number): OsuMod[] {
+      const mods = [] as OsuMod[];
+      while (bits >= 1) {
+        const modBits = bits & (~bits + 1);
+        mods.push(OsuModsEnum[modBits] as OsuMod);
+        bits ^= modBits;
+      }
+      return mods;
+    }
+
+    replay.modsUsed = parseMods(buffer.readInt());
+    replay.lifeBarGraph = buffer.readVarChar();
+    replay.windowsTicks = buffer.readLong();
+    const compressedDataLength = buffer.readInt();
+
+    //TODO: Decompress LZMA data.
+    replay.data = buffer.slice(compressedDataLength).toString('utf8');
+    replay.onlineScoreId = buffer.readLong();
+
+    replay.actions = replay.data
+      .split(',')
+      .reduce<OsuAction[]>((actions, string) => {
+        const splitted = string.split('|');
+        if (splitted.length !== 4 || splitted[0] === '-12345') {
+          return actions;
+        }
+
+        const action = {
+          timestamp: parseInt(splitted[0]),
+          x: parseFloat(splitted[1]),
+          y: parseFloat(splitted[2]),
+        } as OsuAction;
+
+        const bitwise = Number(splitted[3]);
+        action.buttons = Object.keys(OsuButtonsEnum)
+          .filter((k: string | OsuButton) => {
+            if (typeof OsuButtonsEnum[k] === 'string') {
+              const bit = parseInt(k);
+              return bit === (bitwise & bit);
+            }
+            return false;
+          })
+          .map((k: string) => OsuButtonsEnum[k]) as OsuButton[];
+
+        actions.push(action);
+        return actions;
+      }, []);
+    return replay;
+  }
+
+  writeToOsuBuffer() {
+    const buffer = new OsuBuffer();
+    buffer.writeByte(this.type);
+    buffer.writeInt(this.gameVersion);
+    buffer.writeVarChar(this.beatmapHash);
+    buffer.writeVarChar(this.playerName);
+    buffer.writeVarChar(this.replayHash);
+    buffer.writeShort(this.count300s);
+    buffer.writeShort(this.count100s);
+    buffer.writeShort(this.count50s);
+    buffer.writeShort(this.countGekis);
+    buffer.writeShort(this.countKatus);
+    buffer.writeShort(this.countMisses);
+    buffer.writeInt(this.totalScore);
+    buffer.writeShort(this.greatestCombo);
+    buffer.writeByte(this.perfectCombo ? 1 : 0);
+    buffer.writeInt(
+      this.modsUsed.reduce<number>((int, mod) => int + OsuModsEnum[mod], 0)
+    );
+    buffer.writeVarChar(this.lifeBarGraph);
+    buffer.writeLong(this.windowsTicks);
+
+    const data = this.actions
+      .map<string>((action) => {
+        const bit = action.buttons.reduce<number>(
+          (prev, button) => prev + OsuButtonsEnum[button],
+          0
+        );
+        return `${action.timestamp}|${action.x}|${action.y}|${bit}`;
+      })
+      .join(',');
+
+    //TODO: Compress data using LZMA.
+    buffer.writeInt(Buffer.byteLength(data, 'utf8'));
+    buffer.concat(Buffer.from(data, 'utf8'));
+
+    buffer.writeLong(this.onlineScoreId);
+    return buffer;
+  }
 }

@@ -28,7 +28,7 @@ export class OsuBuffer {
    * @param otherBuffer A {@link Buffer} or {@link OsuBuffer} to append
    * to the {@link buffer current buffer}.
    */
-  private concat(otherBuffer: Buffer | OsuBuffer) {
+  concat(otherBuffer: Buffer | OsuBuffer) {
     this.buffer = Buffer.concat([
       this.buffer,
       otherBuffer instanceof Buffer ? otherBuffer : otherBuffer.buffer,
@@ -193,7 +193,7 @@ export class OsuBuffer {
    * @param value The value to encode.
    * @returns The encoded value as a array of bytes.
    */
-  static encodeVarInt(value: number) {
+  static encodeVarInt(value: number): number[] {
     if (value < 0) {
       throw new RangeError(
         `The value of "value" is out of range. It must be >= 0`
