@@ -78,36 +78,90 @@ export enum OsuModsEnum {
 
 export type OsuMod = keyof typeof OsuModsEnum;
 
+/**
+ * Class representing a
+ * [osu replay file](https://osu.ppy.sh/help/wiki/osu%21_File_Formats/Osr_%28file_format%29).
+ */
 export class OsuReplay {
+  /**
+   * Game mode of the replay.
+   * ```
+   * 0 = osu! Standard
+   * 1 = Taiko
+   * 2 = Catch the Beat
+   * 3 = osu!mania.
+   * ```
+   */
   type: number;
+  /** Version of the game when the replay was created (ex. 20131216). */
   gameVersion: number;
+  /** Beatmap MD5 hash. */
   beatmapHash: string;
+  /** Player name. */
   playerName: string;
+  /** Replay MD5 hash (includes certain properties of the replay). */
   replayHash: string;
+  /** Number of 300s. */
   count300s: number;
+  /**
+   * Number of 100s in standard, 150s in Taiko, 100s in CTB, 100s in mania.
+   */
   count100s: number;
+  /** Number of 50s in standard, small fruit in CTB, 50s in mania. */
   count50s: number;
+  /** Number of Gekis in standard, Max 300s in mania. */
   countGekis: number;
+  /** Number of Katus in standard, 200s in mania. */
   countKatus: number;
+  /** Number of misses. */
   countMisses: number;
+  /** Total score displayed on the score report. */
   totalScore: number;
+  /** Greatest combo displayed on the score report. */
   greatestCombo: number;
+  /**
+   * If it was a perfect/full combo. Only true with no misses, no slider breaks
+   * and no early finished sliders.
+   */
   perfectCombo: boolean;
+  /** Mods used in the gameplay. */
   modsUsed?: OsuMod[];
+  /** Life bar graph. */
   lifeBarGraph: string;
+  /**
+   * Time stamp ([Windows ticks](http://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29.aspx))
+   */
   windowsTicks: bigint;
+  /** Unparsed actions data separated by commas. */
   data: string;
+  /** Online Score ID. */
   onlineScoreId: bigint;
+  /**
+   * {@link data} parsed as a array of {@link OsuAction}.
+   */
   actions: OsuAction[];
 
+  /**
+   * Converts the {@link windowsTicks} to a {@link Date}.
+   * @returns A {@link Date} instance representing the value of {@link windowsTicks}.
+   */
   get date() {
     return ticksToDate(this.windowsTicks);
   }
 
+  /**
+   * Sets a new {@link windowsTicks} value from a {@link Date}.
+   * @param date The new {@link windowsTicks} value to set represented as a {@link Date}.
+   */
   set date(date: Date) {
     this.windowsTicks = ticksFromDate(date);
   }
 
+  /**
+   * Parses data of a osu replay file from a source.
+   * @param source Source that represents a osu replay file.
+   * @returns The parsed {@link OsuReplay}.
+   */
   static parse(source: OsuBuffer | Buffer | ArrayBuffer | number[]) {
     const buffer =
       source instanceof OsuBuffer
@@ -175,6 +229,10 @@ export class OsuReplay {
     return replay;
   }
 
+  /**
+   * Writes the replay data in this class instance to a {@link OsuBuffer}.
+   * @returns The {@link OsuBuffer} holding the replay data.
+   */
   writeToOsuBuffer() {
     const buffer = new OsuBuffer();
     buffer.writeByte(this.type);

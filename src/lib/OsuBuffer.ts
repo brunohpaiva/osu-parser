@@ -1,5 +1,9 @@
 import { readBigUInt64LE, writeBigUInt64LE } from './utils';
 
+/**
+ * Class holding a {@link Buffer} that contains binary data from a osu file,
+ * with utility methods to read and write values.
+ */
 export class OsuBuffer {
   /** Buffer holding all the binary data. */
   buffer: Buffer;
