@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Class representing a
+						<a href="https://osu.ppy.sh/help/wiki/osu%21_File_Formats/Osr_%28file_format%29">osu replay file</a>.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -90,7 +98,6 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#countkatus" class="tsd-kind-icon">count<wbr>Katus</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#countmisses" class="tsd-kind-icon">count<wbr>Misses</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#data" class="tsd-kind-icon">data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#date" class="tsd-kind-icon">date</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#gameversion" class="tsd-kind-icon">game<wbr>Version</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#greatestcombo" class="tsd-kind-icon">greatest<wbr>Combo</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#lifebargraph" class="tsd-kind-icon">life<wbr>Bar<wbr>Graph</a></li>
@@ -104,6 +111,19 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="osureplay.html#windowsticks" class="tsd-kind-icon">windows<wbr>Ticks</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="osureplay.html#date" class="tsd-kind-icon">date</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="osureplay.html#writetoosubuffer" class="tsd-kind-icon">write<wbr>ToOsu<wbr>Buffer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="osureplay.html#parse" class="tsd-kind-icon">parse</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -115,9 +135,14 @@
 					<div class="tsd-signature tsd-kind-icon">actions<span class="tsd-signature-symbol">:</span> <a href="../interfaces/osuaction.html" class="tsd-signature-type">OsuAction</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L97">lib/files/OsuReplay.ts:97</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L142">lib/files/OsuReplay.ts:142</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p><a href="osureplay.html#data">data</a> parsed as a array of <a href="../interfaces/osuaction.html">OsuAction</a>.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="beatmaphash" class="tsd-anchor"></a>
@@ -125,9 +150,14 @@
 					<div class="tsd-signature tsd-kind-icon">beatmap<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L79">lib/files/OsuReplay.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L99">lib/files/OsuReplay.ts:99</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Beatmap MD5 hash.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="count100s" class="tsd-anchor"></a>
@@ -135,9 +165,14 @@
 					<div class="tsd-signature tsd-kind-icon">count100s<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L83">lib/files/OsuReplay.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L109">lib/files/OsuReplay.ts:109</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of 100s in standard, 150s in Taiko, 100s in CTB, 100s in mania.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="count300s" class="tsd-anchor"></a>
@@ -145,9 +180,14 @@
 					<div class="tsd-signature tsd-kind-icon">count300s<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L82">lib/files/OsuReplay.ts:82</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L105">lib/files/OsuReplay.ts:105</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of 300s.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="count50s" class="tsd-anchor"></a>
@@ -155,9 +195,14 @@
 					<div class="tsd-signature tsd-kind-icon">count50s<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L84">lib/files/OsuReplay.ts:84</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L111">lib/files/OsuReplay.ts:111</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of 50s in standard, small fruit in CTB, 50s in mania.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="countgekis" class="tsd-anchor"></a>
@@ -165,9 +210,14 @@
 					<div class="tsd-signature tsd-kind-icon">count<wbr>Gekis<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L85">lib/files/OsuReplay.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L113">lib/files/OsuReplay.ts:113</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of Gekis in standard, Max 300s in mania.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="countkatus" class="tsd-anchor"></a>
@@ -175,9 +225,14 @@
 					<div class="tsd-signature tsd-kind-icon">count<wbr>Katus<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L86">lib/files/OsuReplay.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L115">lib/files/OsuReplay.ts:115</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of Katus in standard, 200s in mania.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="countmisses" class="tsd-anchor"></a>
@@ -185,9 +240,14 @@
 					<div class="tsd-signature tsd-kind-icon">count<wbr>Misses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L87">lib/files/OsuReplay.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L117">lib/files/OsuReplay.ts:117</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Number of misses.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="data" class="tsd-anchor"></a>
@@ -195,19 +255,14 @@
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L95">lib/files/OsuReplay.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L136">lib/files/OsuReplay.ts:136</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="date" class="tsd-anchor"></a>
-					<h3>date</h3>
-					<div class="tsd-signature tsd-kind-icon">date<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L94">lib/files/OsuReplay.ts:94</a></li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Unparsed actions data separated by commas.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="gameversion" class="tsd-anchor"></a>
@@ -215,9 +270,14 @@
 					<div class="tsd-signature tsd-kind-icon">game<wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L78">lib/files/OsuReplay.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L97">lib/files/OsuReplay.ts:97</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Version of the game when the replay was created (ex. 20131216).</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="greatestcombo" class="tsd-anchor"></a>
@@ -225,9 +285,14 @@
 					<div class="tsd-signature tsd-kind-icon">greatest<wbr>Combo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L89">lib/files/OsuReplay.ts:89</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L121">lib/files/OsuReplay.ts:121</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Greatest combo displayed on the score report.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="lifebargraph" class="tsd-anchor"></a>
@@ -235,9 +300,14 @@
 					<div class="tsd-signature tsd-kind-icon">life<wbr>Bar<wbr>Graph<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L92">lib/files/OsuReplay.ts:92</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L130">lib/files/OsuReplay.ts:130</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Life bar graph.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="modsused" class="tsd-anchor"></a>
@@ -245,9 +315,14 @@
 					<div class="tsd-signature tsd-kind-icon">mods<wbr>Used<span class="tsd-signature-symbol">:</span> <a href="../globals.html#osumod" class="tsd-signature-type">OsuMod</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L91">lib/files/OsuReplay.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L128">lib/files/OsuReplay.ts:128</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Mods used in the gameplay.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="onlinescoreid" class="tsd-anchor"></a>
@@ -255,9 +330,14 @@
 					<div class="tsd-signature tsd-kind-icon">online<wbr>Score<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">bigint</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L96">lib/files/OsuReplay.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L138">lib/files/OsuReplay.ts:138</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Online Score ID.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="perfectcombo" class="tsd-anchor"></a>
@@ -265,9 +345,15 @@
 					<div class="tsd-signature tsd-kind-icon">perfect<wbr>Combo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L90">lib/files/OsuReplay.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L126">lib/files/OsuReplay.ts:126</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If it was a perfect/full combo. Only true with no misses, no slider breaks
+							and no early finished sliders.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="playername" class="tsd-anchor"></a>
@@ -275,9 +361,14 @@
 					<div class="tsd-signature tsd-kind-icon">player<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L80">lib/files/OsuReplay.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L101">lib/files/OsuReplay.ts:101</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Player name.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="replayhash" class="tsd-anchor"></a>
@@ -285,9 +376,14 @@
 					<div class="tsd-signature tsd-kind-icon">replay<wbr>Hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L81">lib/files/OsuReplay.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L103">lib/files/OsuReplay.ts:103</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Replay MD5 hash (includes certain properties of the replay).</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="totalscore" class="tsd-anchor"></a>
@@ -295,9 +391,14 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Score<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L88">lib/files/OsuReplay.ts:88</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L119">lib/files/OsuReplay.ts:119</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Total score displayed on the score report.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="type" class="tsd-anchor"></a>
@@ -305,9 +406,18 @@
 					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L77">lib/files/OsuReplay.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L95">lib/files/OsuReplay.ts:95</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Game mode of the replay.</p>
+							<pre><code><span class="hljs-symbol">0 </span>= osu! Standard
+<span class="hljs-symbol">1 </span>= Taiko
+<span class="hljs-symbol">2 </span>= Catch the Beat
+<span class="hljs-symbol">3 </span>= osu!mania.</code></pre>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="windowsticks" class="tsd-anchor"></a>
@@ -315,9 +425,124 @@
 					<div class="tsd-signature tsd-kind-icon">windows<wbr>Ticks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">bigint</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/227820a/src/lib/files/OsuReplay.ts#L93">lib/files/OsuReplay.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L134">lib/files/OsuReplay.ts:134</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Time stamp (<a href="http://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29.aspx">Windows ticks</a>)</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="date" class="tsd-anchor"></a>
+					<h3>date</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> date<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> date<span class="tsd-signature-symbol">(</span>date<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L148">lib/files/OsuReplay.ts:148</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Converts the <a href="osureplay.html#windowsticks">windowsTicks</a> to a {@link Date}.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Date</span></h4>
+							<p>A {@link Date} instance representing the value of <a href="osureplay.html#windowsticks">windowsTicks</a>.</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L156">lib/files/OsuReplay.ts:156</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets a new <a href="osureplay.html#windowsticks">windowsTicks</a> value from a {@link Date}.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>date: <span class="tsd-signature-type">Date</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The new <a href="osureplay.html#windowsticks">windowsTicks</a> value to set represented as a {@link Date}.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<p>A {@link Date} instance representing the value of <a href="osureplay.html#windowsticks">windowsTicks</a>.</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="writetoosubuffer" class="tsd-anchor"></a>
+					<h3>write<wbr>ToOsu<wbr>Buffer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">write<wbr>ToOsu<wbr>Buffer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L236">lib/files/OsuReplay.ts:236</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Writes the replay data in this class instance to a <a href="osubuffer.html">OsuBuffer</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a></h4>
+							<p>The <a href="osubuffer.html">OsuBuffer</a> holding the replay data.</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="parse" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> parse</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">parse<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="osureplay.html" class="tsd-signature-type">OsuReplay</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/brunohpaiva/osu-parser/blob/5bb8987/src/lib/files/OsuReplay.ts#L165">lib/files/OsuReplay.ts:165</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Parses data of a osu replay file from a source.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <a href="osubuffer.html" class="tsd-signature-type">OsuBuffer</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Source that represents a osu replay file.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="osureplay.html" class="tsd-signature-type">OsuReplay</a></h4>
+							<p>The parsed <a href="osureplay.html">OsuReplay</a>.</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -373,9 +598,6 @@
 								<a href="osureplay.html#data" class="tsd-kind-icon">data</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="osureplay.html#date" class="tsd-kind-icon">date</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="osureplay.html#gameversion" class="tsd-kind-icon">game<wbr>Version</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -408,6 +630,15 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="osureplay.html#windowsticks" class="tsd-kind-icon">windows<wbr>Ticks</a>
 							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="osureplay.html#date" class="tsd-kind-icon">date</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="osureplay.html#writetoosubuffer" class="tsd-kind-icon">write<wbr>ToOsu<wbr>Buffer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="osureplay.html#parse" class="tsd-kind-icon">parse</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -434,6 +665,7 @@
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
