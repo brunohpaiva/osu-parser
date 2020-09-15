@@ -31,6 +31,7 @@ export class OsuBuffer {
   concat(otherBuffer: Buffer | OsuBuffer) {
     this.buffer = Buffer.concat([
       this.buffer,
+      /* istanbul ignore next */
       otherBuffer instanceof Buffer ? otherBuffer : otherBuffer.buffer,
     ]);
   }

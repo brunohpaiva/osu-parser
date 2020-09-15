@@ -129,7 +129,7 @@ test('can create OsuBuffer from a Buffer', (t) => {
   t.is(osuBuffer.readByte(), 159);
 });
 
-test('can create OsuBUffer from another OsuBuffer', (t) => {
+test('can create OsuBuffer from another OsuBuffer', (t) => {
   const inputOsuBuffer = createOsuBuffer(
     0x0b,
     0x04,

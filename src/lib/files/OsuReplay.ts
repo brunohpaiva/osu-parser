@@ -109,7 +109,12 @@ export class OsuReplay {
   }
 
   static parse(source: OsuBuffer | Buffer | ArrayBuffer | number[]) {
-    const buffer = new OsuBuffer(source);
+    const buffer =
+      source instanceof OsuBuffer
+        ? /* istanbul ignore next */ source
+        : new OsuBuffer(source);
+    buffer.position = 0;
+
     const replay = new OsuReplay();
     replay.type = buffer.readByte();
     replay.gameVersion = buffer.readInt();
@@ -126,40 +131,35 @@ export class OsuReplay {
     replay.greatestCombo = buffer.readShort();
     replay.perfectCombo = Boolean(buffer.readByte());
 
-    function parseMods(bits: number): OsuMod[] {
-      const mods = [] as OsuMod[];
-      while (bits >= 1) {
-        const modBits = bits & (~bits + 1);
-        mods.push(OsuModsEnum[modBits] as OsuMod);
-        bits ^= modBits;
-      }
-      return mods;
+    let modsBitwise = buffer.readInt();
+    const mods: OsuMod[] = [];
+    while (modsBitwise >= 1) {
+      const modBits = modsBitwise & (~modsBitwise + 1);
+      mods.push(OsuModsEnum[modBits] as OsuMod);
+      modsBitwise ^= modBits;
     }
 
-    replay.modsUsed = parseMods(buffer.readInt());
+    replay.modsUsed = mods;
     replay.lifeBarGraph = buffer.readVarChar();
     replay.windowsTicks = buffer.readLong();
-    const compressedDataLength = buffer.readInt();
 
+    const compressedDataLength = buffer.readInt();
     const compressedData = buffer.slice(compressedDataLength);
     replay.data = decompress(compressedData);
     replay.onlineScoreId = buffer.readLong();
 
     replay.actions = replay.data
       .split(',')
-      .reduce<OsuAction[]>((actions, string) => {
-        const splitted = string.split('|');
-        if (splitted.length !== 4 || splitted[0] === '-12345') {
-          return actions;
-        }
-
+      .filter((string) => !string.startsWith('-12345') && string.includes('|'))
+      .map<OsuAction>((string) => {
+        const actionData = string.split('|');
         const action = {
-          timestamp: parseInt(splitted[0]),
-          x: parseFloat(splitted[1]),
-          y: parseFloat(splitted[2]),
+          timestamp: parseInt(actionData[0]),
+          x: parseFloat(actionData[1]),
+          y: parseFloat(actionData[2]),
         } as OsuAction;
 
-        const bitwise = Number(splitted[3]);
+        const bitwise = parseInt(actionData[3]);
         action.buttons = Object.keys(OsuButtonsEnum)
           .filter((k: string | OsuButton) => {
             if (typeof OsuButtonsEnum[k] === 'string') {
@@ -168,11 +168,10 @@ export class OsuReplay {
             }
             return false;
           })
-          .map((k: string) => OsuButtonsEnum[k]) as OsuButton[];
+          .map<OsuButton>((k: string) => OsuButtonsEnum[k]);
 
-        actions.push(action);
-        return actions;
-      }, []);
+        return action;
+      });
     return replay;
   }
 
@@ -191,7 +190,7 @@ export class OsuReplay {
     buffer.writeShort(this.countMisses);
     buffer.writeInt(this.totalScore);
     buffer.writeShort(this.greatestCombo);
-    buffer.writeByte(this.perfectCombo ? 1 : 0);
+    buffer.writeByte(/* istanbul ignore next */ this.perfectCombo ? 1 : 0);
     buffer.writeInt(
       this.modsUsed.reduce<number>((int, mod) => int + OsuModsEnum[mod], 0)
     );
