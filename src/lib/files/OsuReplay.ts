@@ -84,7 +84,7 @@ export type OsuMod = keyof typeof OsuModsEnum;
  */
 export class OsuReplay {
   /**
-   * Game mode of the replay.
+   * Game mode of the replay. Default: 0
    * ```
    * 0 = osu! Standard
    * 1 = Taiko
@@ -92,54 +92,56 @@ export class OsuReplay {
    * 3 = osu!mania.
    * ```
    */
-  type: number;
-  /** Version of the game when the replay was created (ex. 20131216). */
-  gameVersion: number;
-  /** Beatmap MD5 hash. */
-  beatmapHash: string;
-  /** Player name. */
-  playerName: string;
-  /** Replay MD5 hash (includes certain properties of the replay). */
-  replayHash: string;
-  /** Number of 300s. */
-  count300s: number;
+  type = 0;
+  /** Version of the game when the replay was created (ex. 20131216). Default: 0 */
+  gameVersion = 0;
+  /** Beatmap MD5 hash. Default: '' */
+  beatmapHash = '';
+  /** Player name. Default: '' */
+  playerName = '';
+  /** Replay MD5 hash (includes certain properties of the replay). Default: '' */
+  replayHash = '';
+  /** Number of 300s. Default: 0 */
+  count300s = 0;
   /**
    * Number of 100s in standard, 150s in Taiko, 100s in CTB, 100s in mania.
+   * Default: 0
    */
-  count100s: number;
-  /** Number of 50s in standard, small fruit in CTB, 50s in mania. */
-  count50s: number;
-  /** Number of Gekis in standard, Max 300s in mania. */
-  countGekis: number;
-  /** Number of Katus in standard, 200s in mania. */
-  countKatus: number;
-  /** Number of misses. */
-  countMisses: number;
-  /** Total score displayed on the score report. */
-  totalScore: number;
-  /** Greatest combo displayed on the score report. */
-  greatestCombo: number;
+  count100s = 0;
+  /** Number of 50s in standard, small fruit in CTB, 50s in mania. Default: 0 */
+  count50s = 0;
+  /** Number of Gekis in standard, Max 300s in mania. Default: 0 */
+  countGekis = 0;
+  /** Number of Katus in standard, 200s in mania. Default: 0 */
+  countKatus = 0;
+  /** Number of misses. Default: 0 */
+  countMisses = 0;
+  /** Total score displayed on the score report. Default: 0 */
+  totalScore = 0;
+  /** Greatest combo displayed on the score report. Default: 0 */
+  greatestCombo = 0;
   /**
    * If it was a perfect/full combo. Only true with no misses, no slider breaks
-   * and no early finished sliders.
+   * and no early finished sliders. Default: false
    */
-  perfectCombo: boolean;
-  /** Mods used in the gameplay. */
-  modsUsed?: OsuMod[];
-  /** Life bar graph. */
-  lifeBarGraph: string;
+  perfectCombo = false;
+  /** Mods used in the gameplay. Default: [] */
+  modsUsed: OsuMod[] = [];
+  /** Life bar graph. Default: '' */
+  lifeBarGraph = '';
   /**
    * Time stamp ([Windows ticks](http://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29.aspx))
+   * Default: 0n
    */
-  windowsTicks: bigint;
-  /** Unparsed actions data separated by commas. */
-  data: string;
-  /** Online Score ID. */
-  onlineScoreId: bigint;
+  windowsTicks = 0n;
+  /** Unparsed actions data separated by commas. Default: '' */
+  data = '';
+  /** Online Score ID. Default: 0n */
+  onlineScoreId = 0n;
   /**
    * {@link data} parsed as a array of {@link OsuAction}.
    */
-  actions: OsuAction[];
+  actions: OsuAction[] = [];
 
   /**
    * Converts the {@link windowsTicks} to a {@link Date}.

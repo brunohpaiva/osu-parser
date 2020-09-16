@@ -4,7 +4,7 @@ import test from 'ava';
 
 import { OsuReplay } from './OsuReplay';
 
-test('able to write OsuReplay to file', (t) => {
+test('able to write OsuReplay to buffer', (t) => {
   const replay = new OsuReplay();
   replay.type = 0;
   replay.gameVersion = 20200724;

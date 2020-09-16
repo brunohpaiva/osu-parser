@@ -237,7 +237,7 @@ export class OsuBuffer {
    */
   writeVarChar(value: string, nullable = false, encoding?: BufferEncoding) {
     const bytes = [];
-    if (value.length === 0) {
+    if (typeof value === 'undefined' || value.length === 0) {
       if (nullable) {
         bytes.push(0);
       } else {
