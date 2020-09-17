@@ -3,6 +3,9 @@ import { compress, decompress } from 'lzma';
 import { OsuBuffer } from '../OsuBuffer';
 import { ticksFromDate, ticksToDate } from '../utils';
 
+/**
+ * Enum holding all osu gameplay keys and bit values.
+ */
 export enum OsuButtonsEnum {
   MouseOne = 1,
   MouseTwo = 2,
@@ -11,15 +14,25 @@ export enum OsuButtonsEnum {
   Smoke = 16,
 }
 
+/**
+ * Type representing a osu gameplay key.
+ */
 export type OsuButton = keyof typeof OsuButtonsEnum;
 
+/**
+ * Interface that represents a osu action.
+ */
 export interface OsuAction {
   timestamp: number;
   x: number;
   y: number;
-  buttons: OsuButton[];
+  buttons?: OsuButton[];
+  rngSeed?: number;
 }
 
+/**
+ * Enum holding all osu mod names and bit values.
+ */
 export enum OsuModsEnum {
   'NoFail' = 1,
   'Easy' = 2,
@@ -76,6 +89,9 @@ export enum OsuModsEnum {
   'ScoreIncreaseMods' = Hidden | HardRock | DoubleTime | Flashlight | FadeIn,
 }
 
+/**
+ * Type representing a osu mod. Examples: 'Perfect', 'Easy', 'NoFail'
+ */
 export type OsuMod = keyof typeof OsuModsEnum;
 
 /**
@@ -134,8 +150,8 @@ export class OsuReplay {
    * Default: 0n
    */
   windowsTicks = 0n;
-  /** Unparsed actions data separated by commas. Default: '' */
-  data = '';
+  /** Serialized actions data separated by commas. Default: '' */
+  private _data = '';
   /** Online Score ID. Default: 0n */
   onlineScoreId = 0n;
   /**
@@ -157,6 +173,75 @@ export class OsuReplay {
    */
   set date(date: Date) {
     this.windowsTicks = ticksFromDate(date);
+  }
+
+  /**
+   * Serialized actions data separated by commas.
+   * @returns The serialized data that was parsed from the parsed buffer.
+   */
+  get data() {
+    return this._data;
+  }
+
+  /**
+   * Parses the serialized actions string to a {@link OsuAction} array.
+   * @param serializedActions The string with the serialized actions.
+   * @returns A array of {@link OsuAction}.
+   */
+  static unserializeActions(serializedActions: string): OsuAction[] {
+    return serializedActions
+      .split(',')
+      .filter((string) => string.includes('|'))
+      .map<OsuAction>((string) => {
+        const actionData = string.split('|');
+        const action = {
+          timestamp: parseInt(actionData[0]),
+          x: parseFloat(actionData[1]),
+          y: parseFloat(actionData[2]),
+        } as OsuAction;
+
+        const number = parseInt(actionData[3]);
+
+        if (!string.startsWith('-12345')) {
+          action.buttons = Object.keys(OsuButtonsEnum)
+            .filter((k: string | OsuButton) => {
+              if (typeof OsuButtonsEnum[k] === 'string') {
+                const bit = parseInt(k);
+                return bit === (number & bit);
+              }
+              return false;
+            })
+            .map<OsuButton>((k: string) => OsuButtonsEnum[k]);
+        } else {
+          action.rngSeed = number;
+        }
+
+        return action;
+      });
+  }
+
+  /**
+   * Serializes a array of {@link OsuAction} into a string.
+   * @param actions The array of {@link OsuAction} to serialize.
+   * @returns The serialized actions as a string.
+   */
+  static serializeActions(actions: OsuAction[]) {
+    return actions
+      .map<string>((action) => {
+        const isRngSeed =
+          typeof action.buttons === 'undefined' &&
+          typeof action.rngSeed !== 'undefined';
+        if (isRngSeed) {
+          return `-12345|0|0|${action.rngSeed}`;
+        } else {
+          const bitwise = action.buttons.reduce<number>(
+            (prev, button) => prev + OsuButtonsEnum[button],
+            0
+          );
+          return `${action.timestamp}|${action.x}|${action.y}|${bitwise}`;
+        }
+      })
+      .join(',');
   }
 
   /**
@@ -201,33 +286,12 @@ export class OsuReplay {
 
     const compressedDataLength = buffer.readInt();
     const compressedData = buffer.slice(compressedDataLength);
-    replay.data = decompress(compressedData);
+    const uncompressedData = decompress(compressedData);
+    replay._data = uncompressedData;
+    replay.actions = OsuReplay.unserializeActions(uncompressedData);
+
     replay.onlineScoreId = buffer.readLong();
 
-    replay.actions = replay.data
-      .split(',')
-      .filter((string) => !string.startsWith('-12345') && string.includes('|'))
-      .map<OsuAction>((string) => {
-        const actionData = string.split('|');
-        const action = {
-          timestamp: parseInt(actionData[0]),
-          x: parseFloat(actionData[1]),
-          y: parseFloat(actionData[2]),
-        } as OsuAction;
-
-        const bitwise = parseInt(actionData[3]);
-        action.buttons = Object.keys(OsuButtonsEnum)
-          .filter((k: string | OsuButton) => {
-            if (typeof OsuButtonsEnum[k] === 'string') {
-              const bit = parseInt(k);
-              return bit === (bitwise & bit);
-            }
-            return false;
-          })
-          .map<OsuButton>((k: string) => OsuButtonsEnum[k]);
-
-        return action;
-      });
     return replay;
   }
 
@@ -257,16 +321,7 @@ export class OsuReplay {
     buffer.writeVarChar(this.lifeBarGraph);
     buffer.writeLong(this.windowsTicks);
 
-    const data = this.actions
-      .map<string>((action) => {
-        const bit = action.buttons.reduce<number>(
-          (prev, button) => prev + OsuButtonsEnum[button],
-          0
-        );
-        return `${action.timestamp}|${action.x}|${action.y}|${bit}`;
-      })
-      .join(',');
-
+    const data = OsuReplay.serializeActions(this.actions);
     const compressedData = compress(data);
     buffer.writeInt(compressedData.length);
     buffer.concat(Buffer.from(compressedData));

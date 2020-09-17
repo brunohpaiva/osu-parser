@@ -36,6 +36,12 @@ test('able to write OsuReplay to buffer', (t) => {
       y: 200,
       buttons: ['KeyboardTwo', 'MouseTwo'],
     },
+    {
+      timestamp: -12345,
+      x: 0,
+      y: 0,
+      rngSeed: 654321,
+    },
   ];
   replay.onlineScoreId = 98247527n;
 
@@ -72,7 +78,7 @@ test('able to parse OsuReplay from buffer', (t) => {
   });
   t.regex(replay.lifeBarGraph, /^(\d+\|[0-9.?]+,?)*$/);
   t.regex(replay.data, /^(-?\d+\|-?[0-9.]+\|-?[0-9.]+\|\d+,?){4658}$/);
-  t.true(replay.actions.length === 4657);
+  t.true(replay.actions.length === 4658); // 4657 actions + RNG seed
 });
 
 test('able to convert .NET ticks to date and vice-versa', (t) => {
