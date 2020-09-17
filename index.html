@@ -67,7 +67,98 @@
 				<a href="#osu-parser" id="osu-parser" style="color: inherit; text-decoration: none;">
 					<h1>osu-parser</h1>
 				</a>
-				<p>An library to parse osu files</p>
+				<p><a href="https://www.npmjs.org/package/@brunohpaiva/osu-parser"><img src="https://img.shields.io/npm/v/@brunohpaiva/osu-parser.svg?style=flat" alt="npm version"></a>
+					<a href="http://npm-stat.com/charts.html?package=@brunohpaiva/osu-parser"><img src="https://img.shields.io/npm/dm/@brunohpaiva/osu-parser.svg?style=flat" alt="npm downloads"></a>
+				<a href="https://www.npmjs.org/package/@brunohpaiva/osu-parser"><img src="https://img.shields.io/bundlephobia/min/@brunohpaiva/osu-parser?style=flat" alt="npm bundle size"></a></p>
+				<p>A library to read and write osu files for Node.js</p>
+				<a href="#installing" id="installing" style="color: inherit; text-decoration: none;">
+					<h2>Installing</h2>
+				</a>
+				<p>Using npm:</p>
+				<pre><code class="language-bash">$ npm install @brunohpaiva/osu-parser</code></pre>
+				<p>Using yarn:</p>
+				<pre><code class="language-bash">$ yarn add @brunohpaiva/osu-parser</code></pre>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<a href="#replay-file-osr" id="replay-file-osr" style="color: inherit; text-decoration: none;">
+					<h4>Replay file (.osr)</h4>
+				</a>
+				<p>Reading from a file</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { OsuReplay } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@brunohpaiva/osu-parser&#x27;</span>;
+<span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;fs&#x27;</span>;
+
+<span class="hljs-comment">// Path of local .osr file</span>
+<span class="hljs-keyword">const</span> filePath = <span class="hljs-string">&#x27;./osu-replay-input.osr&#x27;</span>;
+<span class="hljs-comment">// Read file contents synchronously and stores it in a buffer</span>
+<span class="hljs-keyword">const</span> buffer = fs.readFileSync(filePath);
+<span class="hljs-comment">// Parses the buffer to a OsuReplay</span>
+<span class="hljs-keyword">const</span> replay = OsuReplay.parse(buffer);
+
+<span class="hljs-built_in">console</span>.log(replay);</code></pre>
+				<p>Writing to a file</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { OsuReplay } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@brunohpaiva/osu-parser&#x27;</span>;
+<span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;fs&#x27;</span>;
+
+<span class="hljs-comment">// Creates a new replay</span>
+<span class="hljs-keyword">const</span> replay = <span class="hljs-keyword">new</span> OsuReplay();
+
+<span class="hljs-comment">// Set some data to it</span>
+replay.type = <span class="hljs-number">0</span>; <span class="hljs-comment">// osu! standard</span>
+replay.gameVersion = <span class="hljs-number">20200724</span>;
+replay.beatmapHash = <span class="hljs-string">&#x27;hash&#x27;</span>;
+replay.playerName = <span class="hljs-string">&#x27;player&#x27;</span>;
+replay.replayHash = <span class="hljs-string">&#x27;hash&#x27;</span>;
+replay.count300s = <span class="hljs-number">100</span>;
+replay.count100s = <span class="hljs-number">50</span>;
+replay.count50s = <span class="hljs-number">25</span>;
+replay.countGekis = <span class="hljs-number">0</span>;
+replay.countKatus = <span class="hljs-number">5</span>;
+replay.countMisses = <span class="hljs-number">1</span>;
+replay.totalScore = <span class="hljs-number">1953902</span>;
+replay.greatestCombo = <span class="hljs-number">328</span>;
+replay.perfectCombo = <span class="hljs-literal">false</span>;
+replay.modsUsed = [<span class="hljs-string">&#x27;DoubleTime&#x27;</span>];
+replay.lifeBarGraph = <span class="hljs-string">&#x27;lifeBar&#x27;</span>;
+replay.windowsTicks = <span class="hljs-number">637321042198407465n</span>;
+replay.actions = [
+  {
+    timestamp: <span class="hljs-number">10</span>, <span class="hljs-comment">// Time in milliseconds since previous action</span>
+    x: <span class="hljs-number">10</span>, <span class="hljs-comment">// x coordinate from 0 to 512</span>
+    y: <span class="hljs-number">23</span>, <span class="hljs-comment">// y coordinate from 0 to 384</span>
+    buttons: [<span class="hljs-string">&#x27;KeyboardOne&#x27;</span>],
+  },
+  <span class="hljs-comment">// More actions</span>
+];
+replay.onlineScoreId = <span class="hljs-number">98247527n</span>;
+
+<span class="hljs-keyword">const</span> osuBuffer = replay.writeToOsuBuffer();
+<span class="hljs-keyword">const</span> buffer = osuBuffer.buffer;
+
+<span class="hljs-comment">// Path to store the generated .osr file</span>
+<span class="hljs-keyword">const</span> filePath = <span class="hljs-string">&#x27;./osu-replay-output.osr&#x27;</span>;
+<span class="hljs-comment">// Writes the buffer to a file synchronously</span>
+fs.writeFileSync(filePath, buffer);</code></pre>
+				<a href="#osubuffer" id="osubuffer" style="color: inherit; text-decoration: none;">
+					<h4>OsuBuffer</h4>
+				</a>
+				<p>Reading and writing with a <code>OsuBuffer</code></p>
+				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { OsuBuffer } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@brunohpaiva/osu-parser&#x27;</span>;
+
+<span class="hljs-comment">// Initialize a empty buffer.</span>
+<span class="hljs-keyword">const</span> osuBuffer = <span class="hljs-keyword">new</span> OsuBuffer();
+osuBuffer.writeInt(<span class="hljs-number">10</span>);
+osuBuffer.writeVarChar(<span class="hljs-string">&#x27;A text&#x27;</span>);
+osuBuffer.writeByte(<span class="hljs-number">5</span>);
+
+<span class="hljs-built_in">console</span>.log(osuBuffer.buffer);
+<span class="hljs-comment">// Output: &lt;Buffer 0a 00 00 00 0b 06 41 20 74 65 78 74 05&gt;</span>
+
+<span class="hljs-built_in">console</span>.log(osuBuffer.readInt());
+<span class="hljs-comment">// Output: 10</span>
+
+<span class="hljs-built_in">console</span>.log(osuBuffer.readVarChar());
+<span class="hljs-comment">// Output: A text</span></code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
